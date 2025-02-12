@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ro">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Surpriză pentru tine ❤️</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #ffebee;
+            overflow: hidden;
+        }
+
+        .heart {
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            position: relative;
+            transform: rotate(-45deg);
+            cursor: pointer;
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .heart::before,
+        .heart::after {
+            content: "";
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            border-radius: 50%;
+            position: absolute;
+        }
+
+        .heart::before {
+            top: -50px;
+            left: 0;
+        }
+
+        .heart::after {
+            left: 50px;
+            top: 0;
+        }
+
+        .heart:hover {
+            transform: scale(1.1) rotate(-45deg);
+        }
+
+        .popup-card {
+            display: none;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: absolute;
+            width: 300px;
+            background: white;
+            border: 5px solid red;
+            padding: 20px;
+            text-align: center;
+            border-radius: 10px;
+            box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.2);
+            animation: popUp 0.5s ease-in-out;
+        }
+
+        @keyframes popUp {
+            from {
+                transform: scale(0);
+                opacity: 0;
+            }
+            to {
+                transform: scale(1);
+                opacity: 1;
+            }
+        }
+
+        .popup-card img {
+            width: 100%;
+            max-width: 250px;
+        }
+
+        .popup-card p {
+            font-size: 20px;
+            font-weight: bold;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="heart" onclick="showCard()"></div>
+
+    <div class="popup-card" id="popup">
+        <img src="https://media2.giphy.com/media/v1.Y2lkPTc5MGI3NjExcjd1cDFlNWpwMmUzNHRlb202aXE3Mjk4bDAyc2loZXVsazFwY2NhdSZlcD12MV9pbnRlcm5hbF9naWZfYnlfaWQmY3Q9Zw/diAhf8bYer76E/giphy.gif" alt="Pop-up Hug Card">
+        <p>O îmbrățișare pentru tine, ori de câte ori ai nevoie❤️🤗</p>
+    </div>
+
+    <script>
+        function showCard() {
+            document.querySelector('.heart').style.display = 'none';
+            document.getElementById('popup').style.display = 'flex';
+        }
+    </script>
+
+</body>
+</html>
